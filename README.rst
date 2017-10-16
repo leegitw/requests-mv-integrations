@@ -55,6 +55,7 @@ Usage
 -----
 
 .. code-block:: python
+
     URL_TUNE_MAT_API_COUNTRIES = \
         'https://api.mobileapptracking.com/v2/countries/find.json'
 
@@ -81,6 +82,7 @@ Example
 -------
 
 .. code-block:: bash
+
     python3 examples/example_request.py
     {"asctime": "2017-10-13 12:02:53 -0700", "levelname": "INFO", "name": "__main__", "version": "00.05.04", "message": "Start"}
     {"asctime": "2017-10-13 12:02:53 -0700", "levelname": "DEBUG", "name": "requests_mv_integrations", "version": "00.05.04", "message": "TMC Countries: Start"}
@@ -112,27 +114,34 @@ Dependencies
 several custom modules that are held within .. _PyPI: https://pypi.python.org/pypi
 
 .. code-block:: bash
-    python3 -m pip uninstall -r requirements.txt
+
+    make install
+
+or
+
+.. code-block:: bash
+
+    python3 -m pip uninstall --yes --no-input -r requirements.txt
     python3 -m pip install --upgrade -r requirements.txt
 
 TUNE Multiverse Custom Core Packages
 ------------------------------------
 
-- .. _logging-mv-integrations: https://pypi.python.org/pypi/logging-mv-integrations
+- logging-mv-integrations: https://pypi.python.org/pypi/logging-mv-integrations
 
 TUNE Multiverse Custom Support Packages
 ---------------------------------------
 
-- .. _pyhttpstatus-utils: https://pypi.python.org/pypi/pyhttpstatus-utils
-- .. _safe-cast: https://pypi.python.org/pypi/safe-cast
+- pyhttpstatus-utils: https://pypi.python.org/pypi/pyhttpstatus-utils
+- safe-cast: https://pypi.python.org/pypi/safe-cast
 
 Support Packages
 ----------------
 
-- .. _beautifulsoup4: https://pypi.python.org/pypi/beautifulsoup4
-- .. _deepdiff: https://pypi.python.org/pypi/deepdiff
-- .. _iron-cache: https://pypi.python.org/pypi/iron-cache
-- .. _requests: https://pypi.python.org/pypi/requests
+- beautifulsoup4: https://pypi.python.org/pypi/beautifulsoup4
+- deepdiff: https://pypi.python.org/pypi/deepdiff
+- iron-cache: https://pypi.python.org/pypi/iron-cache
+- requests: https://pypi.python.org/pypi/requests
 
 
 Acknowledgements

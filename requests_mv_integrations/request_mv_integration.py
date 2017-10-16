@@ -449,8 +449,7 @@ class RequestMvIntegration(object):
                         'errors': ex_req_adapter_retry,
                         'error_code': http_status_code,
                         'error_reason': response_err.args[0],
-                        'error_message': "Request: Exception: HTTPAdapter: Retries exhausted on: '{}'"
-                        .format(request_url),
+                        'error_message': "Request: Exception: HTTPAdapter: Retries exhausted on: '{}'".format(request_url),
                         'error_request_curl': self.built_request_curl,
                     }
 

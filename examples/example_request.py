@@ -9,18 +9,20 @@ from requests_mv_integrations import (
     RequestMvIntegrationDownload,
     __version__,
 )
-from requests_mv_integrations.support import (HEADER_CONTENT_TYPE_APP_JSON)
+from requests_mv_integrations.support import (
+    HEADER_CONTENT_TYPE_APP_JSON
+)
 from logging_mv_integrations import (
-    TuneLogging,
+    get_logger,
     TuneLoggingFormat,
 )
 
 URL_TUNE_MAT_API_COUNTRIES = \
     'https://api.mobileapptracking.com/v2/countries/find.json'
 
-tune_requests_mv_intgs = RequestMvIntegrationDownload(logger_level=logging.DEBUG)
+request_download = RequestMvIntegrationDownload(logger_level=logging.DEBUG)
 
-log = TuneLogging(
+log = get_logger(
     logger_name=__name__.split('.')[0],
     logger_version=__version__,
     logger_level=logging.DEBUG,
@@ -30,7 +32,7 @@ log = TuneLogging(
 log.info("Start")
 
 result = \
-    tune_requests_mv_intgs.request(
+    request_download.request(
         request_method='GET',
         request_url=URL_TUNE_MAT_API_COUNTRIES,
         request_params=None,

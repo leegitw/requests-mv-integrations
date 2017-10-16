@@ -1,9 +1,5 @@
 .. -*- mode: rst -*-
 
-========
-Overview
-========
-
 .. start-badges
 
 .. list-table::
@@ -111,7 +107,7 @@ Dependencies
 ============
 
 ``requests-mv-integrations`` module is built upon Python 3 and is build upon
-several custom modules that are held within .. _PyPI: https://pypi.python.org/pypi
+several custom modules that are held within PyPI: https://pypi.python.org/pypi.
 
 .. code-block:: bash
 
@@ -142,22 +138,3 @@ Support Packages
 - deepdiff: https://pypi.python.org/pypi/deepdiff
 - iron-cache: https://pypi.python.org/pypi/iron-cache
 - requests: https://pypi.python.org/pypi/requests
-
-
-Acknowledgements
-================
-
-.. include:: AUTHORS.rst
-
-Reporting Issues
-================
-
-We definitely want to hear your feedback.
-
-Report issues using the `Github Issue Tracker`:
-https://github.com/TuneLab/requests-mv-integrations/issues
-
-HISTORY
-=======
-
-.. include:: HISTORY.rst

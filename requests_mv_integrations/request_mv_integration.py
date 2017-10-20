@@ -15,7 +15,8 @@ from logging_mv_integrations import (
     get_logger,
 )
 from logging_mv_integrations import (
-    TuneLoggingFormat
+    LoggingFormat,
+    LoggingOutput
 )
 from pyhttpstatus_utils import (
     HttpStatusType,
@@ -117,7 +118,8 @@ class RequestMvIntegration(object):
                 logger_name=__name__.split('.')[0],
                 logger_version=__version__,
                 logger_format=self.logger_format,
-                logger_level=self.logger_level
+                logger_level=self.logger_level,
+                logger_output=self.logger_output
             )
 
         return self.__logger
@@ -170,11 +172,13 @@ class RequestMvIntegration(object):
     def __init__(
         self,
         logger_level=logging.INFO,
-        logger_format=TuneLoggingFormat.JSON,
+        logger_format=LoggingFormat.JSON,
+        logger_output=LoggingOutput.STDOUT_COLOR,
         tune_request=None,
     ):
         self.logger_level = logger_level
         self.logger_format = logger_format
+        self.logger_output = logger_output
 
         self.tune_request = tune_request
 
@@ -1017,7 +1021,7 @@ class RequestMvIntegration(object):
                     request_allow_redirects=allow_redirects
                 )
 
-                self.logger.debug(
+                self.logger.note(
                     '{}: Curl'.format(request_label),
                     extra={
                         'request_method': request_method,

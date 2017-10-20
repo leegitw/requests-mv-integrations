@@ -3,6 +3,11 @@
 Release History
 ===============
 
+00.05.05 (2017-09-12)
+-------------------
+- logger_output: STDOUT, STDOUT_COLOR, FILE
+- logger_filter: NOTE
+
 00.05.04 (2017-09-12)
 ---------------------
 - Support logging-mv-integrations refactor

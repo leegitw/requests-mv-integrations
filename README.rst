@@ -1,5 +1,8 @@
 .. -*- mode: rst -*-
 
+Overview
+========
+
 .. start-badges
 
 .. list-table::

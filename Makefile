@@ -56,6 +56,7 @@ clean:
 	@echo "======================================================"
 	@echo clean $(PACKAGE)
 	@echo "======================================================"
+	rm -fR htmlcov
 	rm -fR __pycache__ venv "*.pyc" build/*    \
 		$(PACKAGE_PREFIX)/__pycache__/         \
 		$(PACKAGE_PREFIX)/helpers/__pycache__/ \
@@ -125,7 +126,9 @@ local-dev-editable: remove-package
 	@echo "======================================================"
 	$(PIP3) install --upgrade freeze
 	$(PIP3) install --upgrade --editable .
+	@echo "======================================================"
 	$(PIP3) freeze | grep $(PACKAGE)
+	@echo "======================================================"
 
 local-dev: remove-package
 	@echo "======================================================"
@@ -133,7 +136,9 @@ local-dev: remove-package
 	@echo "======================================================"
 	$(PIP3) install --upgrade freeze
 	$(PIP3) install --upgrade .
+	@echo "======================================================"
 	$(PIP3) freeze | grep $(PACKAGE)
+	@echo "======================================================"
 
 dist: clean
 	@echo "======================================================"
@@ -144,7 +149,9 @@ dist: clean
 	$(PYTHON3) $(SETUP_FILE) bdist_wheel upload
 	$(PYTHON3) $(SETUP_FILE) bdist_egg upload
 	$(PYTHON3) $(SETUP_FILE) sdist --format=gztar upload
+	@echo "======================================================"
 	ls -al ./dist/$(PACKAGE_PREFIX_WILDCARD)
+	@echo "======================================================"
 
 build: clean
 	@echo "======================================================"
@@ -163,7 +170,9 @@ build: clean
 	$(PYTHON3) $(SETUP_FILE) sdist --format=zip,gztar
 	$(PYTHON3) $(SETUP_FILE) build
 	$(PYTHON3) $(SETUP_FILE) install
+	@echo "======================================================"
 	ls -al ./dist/$(PACKAGE_PREFIX_WILDCARD)
+	@echo "======================================================"
 
 tools-requirements: $(TOOLS_REQ_FILE)
 	@echo "======================================================"
@@ -219,7 +228,11 @@ run-examples:
 	@echo "======================================================"
 	@echo run-examples $(PACKAGE)
 	@echo "======================================================"
-	@$(PYTHON3) examples/example_request.py
+	rm -fR _tmp/*.json
+	@echo "======================================================"
+	@$(PYTHON3) examples/example_request_file.py
+	@echo "======================================================"
+	@$(PYTHON3) examples/example_request_stdout_color.py
 	@echo "======================================================"
 
 test:

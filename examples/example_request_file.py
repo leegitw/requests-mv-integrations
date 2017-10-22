@@ -13,23 +13,21 @@ from requests_mv_integrations.support import (
     HEADER_CONTENT_TYPE_APP_JSON
 )
 from logging_mv_integrations import (
-    get_logger,
-    TuneLoggingFormat,
+    LoggingFormat,
+    LoggingOutput
 )
 
 URL_TUNE_MAT_API_COUNTRIES = \
     'https://api.mobileapptracking.com/v2/countries/find.json'
 
-request_download = RequestMvIntegrationDownload(logger_level=logging.DEBUG)
-
-log = get_logger(
-    logger_name=__name__.split('.')[0],
-    logger_version=__version__,
+request_download = RequestMvIntegrationDownload(
     logger_level=logging.DEBUG,
-    logger_format=TuneLoggingFormat.JSON
+    logger_output=LoggingOutput.FILE,
+    logger_format=LoggingFormat.JSON,
 )
 
-log.info("Start")
+request_download.logger.note(request_download.logger.getLevelName().lower())
+request_download.logger.info("Start".upper())
 
 result = \
     request_download.request(
@@ -41,8 +39,14 @@ result = \
         request_label="TMC Countries"
     )
 
-log.info("Completed", extra=vars(result))
+request_download.logger.info("Completed".upper(), extra=vars(result))
+
+pprint(f"Logger file path: {request_download.logger.logging_file}")
+
+logger_fp = open(request_download.logger.logging_file, 'r')
+pprint(logger_fp.readlines())
+
+pprint(request_download.logger.getLevelName())
 
 json_tune_mat_countries = result.json()
-
 pprint(json_tune_mat_countries)

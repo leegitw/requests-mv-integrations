@@ -3,7 +3,7 @@
 #  @copyright 2017 TUNE, Inc. (http://www.tune.com)
 
 import logging
-from logging_mv_integrations import (TuneLoggingFormat)
+from logging_mv_integrations import (LoggingFormat, LoggingOutput)
 
 from requests_mv_integrations import (
     __python_required_version__,
@@ -36,12 +36,18 @@ class RequestMvIntegrationUpload(object):
     def __init__(
         self,
         logger_level=logging.INFO,
-        logger_format=TuneLoggingFormat.JSON,
+        logger_format=LoggingFormat.JSON,
+        logger_output=LoggingOutput.STDOUT_COLOR
     ):
         self.mv_request = RequestMvIntegration(
             logger_format=logger_format,
             logger_level=logger_level,
+            logger_output=logger_output
         )
+
+    @property
+    def logger(self):
+        return self.mv_request.logger
 
     @property
     def mv_request(self):

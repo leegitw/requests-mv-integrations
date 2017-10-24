@@ -45,20 +45,19 @@ class TestRequestMvIntegrationUpload:
 
         assert message in str(info.value)
 
-    # TODO: Failing: See MVC-59
-    # @pytest.mark.parametrize(
-    #     'is_gzip, content_type', ((True, 'application/gzip'), (None, 'application/json; charset=utf8'),)
-    # )
-    # def test_request_upload_json_pass(self, request_object, is_gzip, content_type, run_server):
-    #     response = request_object.request_upload_json_file(
-    #         upload_request_url=test_url,
-    #         upload_data_file_path=test_config_path,
-    #         upload_data_file_size=1,
-    #         is_upload_gzip=is_gzip,
-    #         request_label='test_request_upload_json_pass',
-    #     )
-    #
-    #     assert content_type in response.headers["Content-Type"]
+    @pytest.mark.parametrize(
+        'is_gzip, content_type', ((True, 'application/gzip'), (None, 'application/json; charset=utf8'),)
+    )
+    def test_request_upload_json_pass(self, request_object, is_gzip, content_type, run_server):
+        response = request_object.request_upload_json_file(
+            upload_request_url=test_url,
+            upload_data_file_path=test_config_path,
+            upload_data_file_size=1,
+            is_upload_gzip=is_gzip,
+            request_label='test_request_upload_json_pass',
+        )
+
+        assert content_type in response.headers["Content-Type"]
 
     @pytest.mark.parametrize('url, message, data', (("url", "Invalid URL", "data"),))
     def test_request_upload_data_fail(self, request_object, url, message, data):
@@ -71,16 +70,15 @@ class TestRequestMvIntegrationUpload:
             )
         assert message in str(info.value)
 
-    # TODO: Failing: See MVC-59
-    # @pytest.mark.parametrize('url, data', ((test_url, "text"),))
-    # def test_request_upload_data_pass(self, request_object, url, data, run_server):
-    #     response = request_object.request_upload_data(
-    #         url,
-    #         data,
-    #         upload_data_size=1,
-    #         request_label='test_request_upload_data_pass',
-    #     )
-    #     assert 'application/json; charset=utf8' in response.headers["Content-Type"]
+    @pytest.mark.parametrize('url, data', ((test_url, "text"),))
+    def test_request_upload_data_pass(self, request_object, url, data, run_server):
+        response = request_object.request_upload_data(
+            url,
+            data,
+            upload_data_size=1,
+            request_label='test_request_upload_data_pass',
+        )
+        assert 'application/json; charset=utf8' in response.headers["Content-Type"]
 
     @pytest.mark.parametrize('url, data', ((test_url, "text"),))
     def test_request_upload_data_timeout_pass(self, request_object, url, data, run_server):

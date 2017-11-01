@@ -44,9 +44,9 @@ Overview
 requests-mv-integrations
 ========================
 
-``requests-mv-integrations`` is a Python 3 module for TUNE Multiverse Libraries.
+Python 3 module for TUNE Multiverse Libraries.
 
-.. image:: ./images/request_mv_integrations.png
+.. image:: /images/request_mv_integrations.png
    :scale: 50 %
    :alt: UML requests-mv-integrations
 
@@ -54,6 +54,7 @@ Usage
 -----
 
 .. code-block:: python
+    :linenos:
 
     URL_TUNE_MAT_API_COUNTRIES = \
         'https://api.mobileapptracking.com/v2/countries/find.json'
@@ -81,13 +82,56 @@ Example
 -------
 
 .. code-block:: bash
+    :linenos:
 
     python3 examples/example_request.py
-    {"asctime": "2017-10-13 12:02:53 -0700", "levelname": "INFO", "name": "__main__", "version": "00.05.04", "message": "Start"}
-    {"asctime": "2017-10-13 12:02:53 -0700", "levelname": "DEBUG", "name": "requests_mv_integrations", "version": "00.05.04", "message": "TMC Countries: Start"}
+
+    {
+        "asctime": "2017-10-13 12:02:53 -0700",
+        "levelname": "INFO",
+        "name": "__main__",
+        "version": "00.05.04",
+        "message": "Start"
+    }
+    {
+        "asctime": "2017-10-13 12:02:53 -0700",
+        "levelname": "DEBUG",
+        "name": "requests_mv_integrations",
+        "version": "00.05.04",
+        "message": "TMC Countries: Start"
+    }
     ...
-    {"asctime": "2017-10-13 12:02:53 -0700", "levelname": "DEBUG", "name": "requests_mv_integrations", "version": "00.05.04", "message": "TMC Countries: Details", "request_data": "", "request_headers": {"Content-Type": "application/json", "User-Agent": "(requests-mv-integrations/00.05.04, Python/3.6.2)"}, "request_label": "TMC Countries", "request_method": "GET", "request_params": {}, "request_url": "https://api.mobileapptracking.com/v2/countries/find.json", "timeout": 60}
-    {"asctime": "2017-10-13 12:02:53 -0700", "levelname": "DEBUG", "name": "requests_mv_integrations", "version": "00.05.04", "message": "TMC Countries: Curl", "request_curl": "curl --verbose -X GET -H 'Content-Type: application/json' -H 'User-Agent: (requests-mv-integrations/00.05.04, Python/3.6.2)' --connect-timeout 60 -L 'https://api.mobileapptracking.com/v2/countries/find.json'", "request_label": "TMC Countries", "request_method": "GET"}
+    {
+        "asctime": "2017-10-13 12:02:53 -0700",
+        "levelname": "DEBUG",
+        "name": "requests_mv_integrations",
+        "version": "00.05.04",
+        "message": "TMC Countries: Details",
+        "request_data": "",
+        "request_headers": {
+            "Content-Type": "application/json",
+            "User-Agent": "(requests-mv-integrations/00.05.04, Python/3.6.2)"},
+            "request_label": "TMC Countries",
+            "request_method": "GET",
+            "request_params": {},
+            "request_url": "https://api.mobileapptracking.com/v2/countries/find.json",
+            "timeout": 60
+    }
+    {
+        "asctime": "2017-10-13 12:02:53 -0700",
+        "levelname": "DEBUG",
+        "name": "requests_mv_integrations",
+        "version": "00.05.04",
+        "message": "TMC Countries: Curl",
+        "request_curl": "curl --verbose
+            -X GET
+            -H 'Content-Type: application/json'
+            -H 'User-Agent: (requests-mv-integrations/00.05.04, Python/3.6.2)'
+            --connect-timeout 60
+            -L 'https://api.mobileapptracking.com/v2/countries/find.json'",
+        "request_label": "TMC Countries",
+        "request_method": "GET"
+    }
     ...
     {
         'data': [
@@ -109,8 +153,7 @@ Example
 Dependencies
 ============
 
-``requests-mv-integrations`` module is built upon Python 3 and is build upon
-several custom modules that are held within PyPI: https://pypi.python.org/pypi.
+This module is built upon Python 3 and using several custom modules that are held within `PyPI <https://pypi.python.org/pypi>`_.
 
 .. code-block:: bash
 
@@ -126,18 +169,18 @@ or
 TUNE Multiverse Custom Core Packages
 ------------------------------------
 
-- logging-mv-integrations: https://pypi.python.org/pypi/logging-mv-integrations
+- **logging-mv-integrations**: https://pypi.python.org/pypi/logging-mv-integrations
 
 TUNE Multiverse Custom Support Packages
 ---------------------------------------
 
-- pyhttpstatus-utils: https://pypi.python.org/pypi/pyhttpstatus-utils
-- safe-cast: https://pypi.python.org/pypi/safe-cast
+- **pyhttpstatus-utils**: https://pypi.python.org/pypi/pyhttpstatus-utils
+- **safe-cast**: https://pypi.python.org/pypi/safe-cast
 
 Support Packages
 ----------------
 
-- beautifulsoup4: https://pypi.python.org/pypi/beautifulsoup4
-- deepdiff: https://pypi.python.org/pypi/deepdiff
-- iron-cache: https://pypi.python.org/pypi/iron-cache
-- requests: https://pypi.python.org/pypi/requests
+- **beautifulsoup4**: https://pypi.python.org/pypi/beautifulsoup4
+- **deepdiff**: https://pypi.python.org/pypi/deepdiff
+- **iron-cache**: https://pypi.python.org/pypi/iron-cache
+- **requests**: https://pypi.python.org/pypi/requests

@@ -391,33 +391,61 @@ class RequestMvIntegration(object):
 
         except requests.exceptions.HTTPError as ex_req_http:
             raise TuneRequestModuleError(
-                error_message=f'{request_label}: Exception: HTTP Error',
+                error_message=f'{request_label}: Exception: Requests: HTTPError',
                 errors=ex_req_http,
                 error_request_curl=self.built_request_curl,
                 error_code=TuneRequestErrorCodes.REQ_ERR_REQUEST_HTTP
             )
 
         except (
-            requests.exceptions.ConnectionError, requests.exceptions.ProxyError, requests.exceptions.SSLError,
+            requests.exceptions.ConnectionError,
         ) as ex_req_connect:
             raise TuneRequestModuleError(
-                error_message=f'{request_label}: Exception: Connect {base_class_name(ex_req_connect)}',
+                error_message=f'{request_label}: Exception: Requests: ConnectionError',
                 errors=ex_req_connect,
                 error_request_curl=self.built_request_curl,
                 error_code=TuneRequestErrorCodes.REQ_ERR_REQUEST_CONNECT
             )
 
-        except (BrokenPipeError, ConnectionError,) as ex_ose_connect:
+        except (
+            requests.exceptions.ProxyError,
+        ) as ex_req_proxy:
             raise TuneRequestModuleError(
-                error_message=f'{request_label}: Exception: OSE {base_class_name(ex_ose_connect)}',
-                errors=ex_ose_connect,
+                error_message=f'{request_label}: Exception: Requests: ProxyError',
+                errors=ex_req_proxy,
+                error_request_curl=self.built_request_curl,
+                error_code=TuneRequestErrorCodes.REQ_ERR_REQUEST_CONNECT
+            )
+
+        except (
+            requests.exceptions.SSLError,
+        ) as ex_req_ssl:
+            raise TuneRequestModuleError(
+                error_message=f'{request_label}: Exception: Requests: SSLError',
+                errors=ex_req_ssl,
+                error_request_curl=self.built_request_curl,
+                error_code=TuneRequestErrorCodes.REQ_ERR_REQUEST_CONNECT
+            )
+
+        except (BrokenPipeError) as ex_broken_pipe:
+            raise TuneRequestModuleError(
+                error_message=f'{request_label}: Exception: BrokenPipeError',
+                errors=ex_broken_pipe,
+                error_request_curl=self.built_request_curl,
+                error_code=TuneRequestErrorCodes.REQ_ERR_CONNECT
+            )
+
+        except (ConnectionError) as ex_connect:
+            raise TuneRequestModuleError(
+                error_message=f'{request_label}: Exception: ConnectionError',
+                errors=ex_connect,
                 error_request_curl=self.built_request_curl,
                 error_code=TuneRequestErrorCodes.REQ_ERR_CONNECT
             )
 
         except requests.packages.urllib3.exceptions.ProtocolError as ex_req_urllib3_protocol:
             raise TuneRequestModuleError(
-                error_message=f'{request_label}: Exception: Urllib3: Protocol Error',
+                error_message=f'{request_label}: Exception: Requests: ProtocolError',
                 errors=ex_req_urllib3_protocol,
                 error_request_curl=self.built_request_curl,
                 error_code=TuneRequestErrorCodes.REQ_ERR_REQUEST_CONNECT
@@ -425,7 +453,7 @@ class RequestMvIntegration(object):
 
         except requests.packages.urllib3.exceptions.ReadTimeoutError as ex_req_urllib3_read_timeout:
             raise TuneRequestServiceError(
-                error_message=f'{request_label}: Exception: Urllib3: Read Timeout Error',
+                error_message=f'{request_label}: Exception: Requests: ReadTimeoutError',
                 errors=ex_req_urllib3_read_timeout,
                 error_request_curl=self.built_request_curl,
                 error_code=TuneRequestErrorCodes.GATEWAY_TIMEOUT
@@ -433,7 +461,7 @@ class RequestMvIntegration(object):
 
         except requests.exceptions.TooManyRedirects as ex_req_redirects:
             raise TuneRequestModuleError(
-                error_message=f'{request_label}: Exception: Too Many Redirects',
+                error_message=f'{request_label}: Exception: Requests: TooManyRedirects',
                 errors=ex_req_redirects,
                 error_request_curl=self.built_request_curl,
                 error_code=TuneRequestErrorCodes.REQ_ERR_REQUEST_REDIRECTS
@@ -453,12 +481,12 @@ class RequestMvIntegration(object):
                         'errors': ex_req_adapter_retry,
                         'error_code': http_status_code,
                         'error_reason': response_err.args[0],
-                        'error_message': f"Request: Exception: HTTPAdapter: Retries exhausted on: '{request_url}'",
+                        'error_message': f"Request: Exception: Requests: RetryError: Exhausted: '{request_url}'",
                         'error_request_curl': self.built_request_curl,
                     }
 
                     self.logger.error(
-                        f'{request_label}: Exception: HTTPAdapter: Max retry error',
+                        f'{request_label}: Exception: Requests: RetryError: Max',
                         extra=error_kwargs
                     )
                     if http_status_type == HttpStatusType.CLIENT_ERROR:
@@ -468,13 +496,13 @@ class RequestMvIntegration(object):
 
             # THIS BLOCK SHOULD NOT BE ACTUALLY ACCESSED. IF IT DOES LOOK INTO IT:
             self.logger.error(
-                f'{request_label}: Unexpected RetryError occurred',
+                f'{request_label}: Requests RetryError: Unexpected',
                 extra={
                     'request_curl': self.built_request_curl
                 }
             )
             raise TuneRequestModuleError(
-                error_message=f'{request_label}: Exception: HTTPAdapter: Unexpected Retry Error',
+                error_message=f'{request_label}: Exception: Requests: RetryError: Unexpected',
                 errors=ex_req_adapter_retry,
                 error_request_curl=self.built_request_curl,
                 error_code=TuneRequestErrorCodes.REQ_ERR_RETRY_EXHAUSTED,
@@ -482,7 +510,7 @@ class RequestMvIntegration(object):
 
         except requests.exceptions.RequestException as ex_req_request:
             raise TuneRequestModuleError(
-                error_message=f'{request_label}: Exception: Request Error',
+                error_message=f'{request_label}: Exception: Requests: RequestException',
                 errors=ex_req_request,
                 error_request_curl=self.built_request_curl,
                 error_code=TuneRequestErrorCodes.REQ_ERR_REQUEST
@@ -495,7 +523,7 @@ class RequestMvIntegration(object):
             print_traceback(ex)
 
             raise TuneRequestModuleError(
-                error_message=f'{request_label}: Exception: Unexpected',
+                error_message=f'{request_label}: Exception: Unexpected: {base_class_name(ex)}',
                 errors=ex,
                 error_request_curl=self.built_request_curl,
                 error_code=TuneRequestErrorCodes.REQ_ERR_SOFTWARE

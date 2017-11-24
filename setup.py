@@ -71,7 +71,7 @@ with codecs.open('HISTORY.rst', 'r', 'utf-8') as f:
 setup(
     name='requests-mv-integrations',
     version=version,
-    description='TUNE Multiverse Requests Extension',
+    description='Python HTTP requests extension for TUNE Multiverse Integrations.',
     long_description=readme + '\n\n' + history,
     author='TUNE Inc., TuneLab',
     author_email='jefft@tune.com',
@@ -80,6 +80,7 @@ setup(
     keywords=["tune", "multiverse", "requests"],
     license='MIT License',
     zip_safe=False,
+    include_package_data=True,
     install_requires=REQUIREMENTS,
     packages=PACKAGES,
     package_data={'': ['LICENSE']},

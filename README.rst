@@ -1,7 +1,14 @@
 .. -*- mode: rst -*-
 
-Overview
-========
+
+requests-mv-integrations
+------------------------
+
+Python HTTP requests extension for TUNE Multiverse Integrations.
+
+
+Badges
+------
 
 .. start-badges
 
@@ -15,6 +22,11 @@ Overview
     * - package
       - |version| |supported-versions| |requires|
 
+
+.. |docs| image:: https://readthedocs.org/projects/requests-mv-integrations/badge/?style=flat
+    :alt: Documentation Status
+    :target: https://readthedocs.org/projects/requests-mv-integrations
+
 .. |license| image:: https://img.shields.io/badge/License-MIT-yellow.svg
     :alt: License Status
     :target: https://opensource.org/licenses/MIT
@@ -23,17 +35,17 @@ Overview
     :alt: Travis-CI Build Status
     :target: https://travis-ci.org/TuneLab/requests-mv-integrations
 
-.. |coveralls| image:: https://coveralls.io/repos/github/TuneLab/requests-mv-integrations/badge.svg?branch=master
+.. |coveralls| image:: https://coveralls.io/repos/TuneLab/requests-mv-integrations/badge.svg?branch=master&service=github
     :alt: Code Coverage Status
-    :target: https://coveralls.io/github/TuneLab/requests-mv-integrations?branch=master
+    :target: https://coveralls.io/r/TuneLab/requests-mv-integrations
 
 .. |requires| image:: https://requires.io/github/TuneLab/requests-mv-integrations/requirements.svg?branch=master
-     :target: https://requires.io/github/TuneLab/requests-mv-integrations/requirements/?branch=master
-     :alt: Requirements Status
+    :alt: Requirements Status
+    :target: https://requires.io/github/TuneLab/requests-mv-integrations/requirements/?branch=master
 
-.. |version| image:: https://img.shields.io/pypi/v/requests-mv-integrations.svg?style=flat
+.. |version| image:: https://img.shields.io/pypi/v/requests_mv_integrations.svg?style=flat
     :alt: PyPI Package latest release
-    :target: https://pypi.python.org/pypi/requests-mv-integrations
+    :target: https://pypi.python.org/pypi/requests_mv_integrations
 
 .. |supported-versions| image:: https://img.shields.io/pypi/pyversions/requests-mv-integrations.svg?style=flat
     :alt: Supported versions
@@ -41,20 +53,32 @@ Overview
 
 .. end-badges
 
-requests-mv-integrations
-========================
 
-Python 3 module for TUNE Multiverse Libraries.
+Install
+-------
 
-.. image:: /images/request_mv_integrations.png
+.. code-block:: bash
+
+    pip install requests_mv_integrations
+
+
+Architecture
+------------
+
+``requests-mv-integrations`` is an extension of the `Python package requests <https://pypi.python.org/pypi/requests>`_
+and it is used for TUNE Multiverse Integrations for handling all HTTP requests including APIs in REST and SOAP,
+screen scrapping, and handling response downloads in JSON, XML, and CSV.
+
+.. image:: ./images/requests_mv_integrations.png
    :scale: 50 %
    :alt: UML requests-mv-integrations
+
+
 
 Usage
 -----
 
 .. code-block:: python
-    :linenos:
 
     URL_TUNE_MAT_API_COUNTRIES = \
         'https://api.mobileapptracking.com/v2/countries/find.json'
@@ -78,13 +102,13 @@ Usage
 
     pprint(json_tune_mat_countries)
 
+
 Example
--------
+^^^^^^^
 
 .. code-block:: bash
-    :linenos:
 
-    python3 examples/example_request.py
+    $ python3 examples/example_request.py
 
     {
         "asctime": "2017-10-13 12:02:53 -0700",
@@ -150,10 +174,12 @@ Example
         'status_code': 200,
     }
 
-Dependencies
-============
 
-This module is built upon Python 3 and using several custom modules that are held within `PyPI <https://pypi.python.org/pypi>`_.
+Requirements
+------------
+
+``requests-mv-integrations`` module is built upon Python 3 and has dependencies upon
+several Python modules available within `Python Package Index PyPI <https://pypi.python.org/pypi>`_.
 
 .. code-block:: bash
 
@@ -166,21 +192,13 @@ or
     python3 -m pip uninstall --yes --no-input -r requirements.txt
     python3 -m pip install --upgrade -r requirements.txt
 
-TUNE Multiverse Custom Core Packages
-------------------------------------
 
-- **logging-mv-integrations**: https://pypi.python.org/pypi/logging-mv-integrations
-
-TUNE Multiverse Custom Support Packages
----------------------------------------
-
-- **pyhttpstatus-utils**: https://pypi.python.org/pypi/pyhttpstatus-utils
-- **safe-cast**: https://pypi.python.org/pypi/safe-cast
-
-Support Packages
-----------------
+Packages
+^^^^^^^^
 
 - **beautifulsoup4**: https://pypi.python.org/pypi/beautifulsoup4
 - **deepdiff**: https://pypi.python.org/pypi/deepdiff
-- **iron-cache**: https://pypi.python.org/pypi/iron-cache
+- **logging-mv-integrations**: https://pypi.python.org/pypi/logging-mv-integrations
+- **pyhttpstatus-utils**: https://pypi.python.org/pypi/pyhttpstatus-utils
 - **requests**: https://pypi.python.org/pypi/requests
+- **safe-cast**: https://pypi.python.org/pypi/safe-cast

@@ -34,7 +34,7 @@ PACKAGES = [
     'requests_mv_integrations.support.response'
 ]
 
-TEST_REQUIREMENTS = ['pytest>=2.8.0', 'pytest-cov']
+TEST_REQUIREMENTS = ['pytest>=3.2.5', 'pytest-cov']
 
 with open('requests_mv_integrations/__init__.py', 'r') as fd:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', fd.read(), re.MULTILINE).group(1)
@@ -71,13 +71,13 @@ with codecs.open('HISTORY.rst', 'r', 'utf-8') as f:
 setup(
     name='requests-mv-integrations',
     version=version,
-    description='Python HTTP requests extension for TUNE Multiverse Integrations.',
+    description="Extension of Python HTTP `requests` with verbose logging using `logging-mv-integrations`.",
     long_description=readme + '\n\n' + history,
     author='TUNE Inc., TuneLab',
     author_email='jefft@tune.com',
     url='https://github.com/TuneLab/requests-mv-integrations',
-    download_url=f'https://github.com/TuneLab/requests-mv-integrations/archive/v{version}.tar.gz',
-    keywords=["tune", "multiverse", "requests"],
+    download_url='https://github.com/TuneLab/requests-mv-integrations/archive/v{0}.tar.gz'.format(version),
+    keywords="requests tune multiverse",
     license='MIT License',
     zip_safe=False,
     include_package_data=True,

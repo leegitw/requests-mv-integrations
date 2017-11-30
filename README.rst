@@ -1,10 +1,10 @@
 .. -*- mode: rst -*-
 
-
 requests-mv-integrations
 ------------------------
 
-Python HTTP requests extension for TUNE Multiverse Integrations.
+Extension of Python HTTP `requests <https://pypi.python.org/pypi/requests>`_ with verbose
+logging using `logging-mv-integrations <https://pypi.python.org/pypi/logging-mv-integrations>`_.
 
 
 Badges
@@ -15,8 +15,8 @@ Badges
 .. list-table::
     :stub-columns: 1
 
-    * - docs
-      - |license|
+    * - info
+      - |license| |hits| |contributors|
     * - tests
       - |travis| |coveralls|
     * - package
@@ -26,6 +26,14 @@ Badges
 .. |docs| image:: https://readthedocs.org/projects/requests-mv-integrations/badge/?style=flat
     :alt: Documentation Status
     :target: https://readthedocs.org/projects/requests-mv-integrations
+
+.. |hits| image:: http://hits.dwyl.io/TuneLab/requests-mv-integrations.svg
+    :alt: Hit Count
+    :target: http://hits.dwyl.io/TuneLab/requests-mv-integrations
+
+.. |contributors| image:: https://img.shields.io/github/contributors/TuneLab/requests-mv-integrations.svg
+    :alt: Contributors
+    :target: https://github.com/TuneLab/requests-mv-integrations/graphs/contributors
 
 .. |license| image:: https://img.shields.io/badge/License-MIT-yellow.svg
     :alt: License Status
@@ -174,6 +182,13 @@ Example
         'status_code': 200,
     }
 
+
+Classes
+-------
+
+- ``class RequestMvIntegration`` -- Base class using `requests <https://pypi.python.org/pypi/requests>`_ with retry functionality and verbose logging.
+- ``class RequestMvIntegrationDownload`` -- Download file handling.
+- ``class RequestMvIntegrationUpload`` -- Upload file handling.
 
 Requirements
 ------------

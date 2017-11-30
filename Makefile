@@ -236,7 +236,7 @@ run-examples:
 	@echo "======================================================"
 
 test:
-	py.test tests
+	py.test --verbose tests
 
 coverage:
 	py.test --verbose --cov-report html --cov=requests_mv_integrations tests

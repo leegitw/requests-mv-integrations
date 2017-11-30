@@ -160,6 +160,7 @@ class RequestMvIntegrationUpload(object):
         upload_data_size,
         request_label=None,
         upload_timeout=None,
+        build_request_curl=False
     ):
         """Upload Data to requested URL.
 
@@ -206,7 +207,7 @@ class RequestMvIntegrationUpload(object):
                 request_retry_excps_func=mv_request_retry_excps_func,
                 request_headers=request_headers,
                 allow_redirects=False,
-                build_request_curl=False,
+                build_request_curl=build_request_curl,
                 request_label=request_label
             )
         except TuneRequestBaseError as tmv_ex:

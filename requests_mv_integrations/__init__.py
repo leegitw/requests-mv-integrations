@@ -3,7 +3,7 @@
 #  @copyright 2017 TUNE, Inc. (http://www.tune.com)
 
 __title__ = 'requests-mv-integrations'
-__version__ = '0.7.2'
+__version__ = '0.7.3'
 __version_info__ = tuple(__version__.split('.'))
 
 __author__ = 'jefft@tune.com'

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #  @namespace requests-mv-integrations
 #
-#    Copyright (c) 2017 TUNE, Inc.
+#    Copyright (c) 2018 TUNE, Inc.
 #    All rights reserved.
 #
 
@@ -73,10 +73,10 @@ setup(
     version=version,
     description="Extension of Python HTTP `requests` with verbose logging using `logging-mv-integrations`.",
     long_description=readme + '\n\n' + history,
-    author='TUNE Inc., TuneLab',
+    author='TUNE Inc.',
     author_email='jefft@tune.com',
-    url='https://github.com/TuneLab/requests-mv-integrations',
-    download_url='https://github.com/TuneLab/requests-mv-integrations/archive/v{0}.tar.gz'.format(version),
+    url='https://github.com/tuneinc/requests-mv-integrations',
+    download_url='https://github.com/tuneinc/requests-mv-integrations/archive/v{0}.tar.gz'.format(version),
     keywords="requests tune multiverse",
     license='MIT License',
     zip_safe=False,

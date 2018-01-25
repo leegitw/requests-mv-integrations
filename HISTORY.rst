@@ -3,6 +3,10 @@
 Release History
 ===============
 
+0.7.4 (2018-01-25)
+------------------
+- migrate to github/tuneinc.
+
 0.7.2 (2017-12-10)
 ---------------------
 - readthedocs.org

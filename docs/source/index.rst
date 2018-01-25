@@ -40,29 +40,29 @@ Badges
     :alt: Documentation Status
     :target: http://requests-mv-integrations.readthedocs.io
 
-.. |hits| image:: http://hits.dwyl.io/TuneLab/requests-mv-integrations.svg
+.. |hits| image:: http://hits.dwyl.io/tuneinc/requests-mv-integrations.svg
     :alt: Hit Count
-    :target: http://hits.dwyl.io/TuneLab/requests-mv-integrations
+    :target: http://hits.dwyl.io/tuneinc/requests-mv-integrations
 
-.. |contributors| image:: https://img.shields.io/github/contributors/TuneLab/requests-mv-integrations.svg
+.. |contributors| image:: https://img.shields.io/github/contributors/tuneinc/requests-mv-integrations.svg
     :alt: Contributors
-    :target: https://github.com/TuneLab/requests-mv-integrations/graphs/contributors
+    :target: https://github.com/tuneinc/requests-mv-integrations/graphs/contributors
 
 .. |license| image:: https://img.shields.io/badge/License-MIT-yellow.svg
     :alt: License Status
     :target: https://opensource.org/licenses/MIT
 
-.. |travis| image:: https://travis-ci.org/TuneLab/requests-mv-integrations.svg?branch=master
+.. |travis| image:: https://travis-ci.org/tuneinc/requests-mv-integrations.svg?branch=master
     :alt: Travis-CI Build Status
-    :target: https://travis-ci.org/TuneLab/requests-mv-integrations
+    :target: https://travis-ci.org/tuneinc/requests-mv-integrations
 
-.. |coveralls| image:: https://coveralls.io/repos/TuneLab/requests-mv-integrations/badge.svg?branch=master&service=github
+.. |coveralls| image:: https://coveralls.io/repos/tuneinc/requests-mv-integrations/badge.svg?branch=master&service=github
     :alt: Code Coverage Status
-    :target: https://coveralls.io/r/TuneLab/requests-mv-integrations
+    :target: https://coveralls.io/r/tuneinc/requests-mv-integrations
 
-.. |requires| image:: https://requires.io/github/TuneLab/requests-mv-integrations/requirements.svg?branch=master
+.. |requires| image:: https://requires.io/github/tuneinc/requests-mv-integrations/requirements.svg?branch=master
     :alt: Requirements Status
-    :target: https://requires.io/github/TuneLab/requests-mv-integrations/requirements/?branch=master
+    :target: https://requires.io/github/tuneinc/requests-mv-integrations/requirements/?branch=master
 
 .. |version| image:: https://img.shields.io/pypi/v/requests_mv_integrations.svg?style=flat
     :alt: PyPI Package latest release

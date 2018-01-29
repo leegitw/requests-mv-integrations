@@ -20,7 +20,7 @@ from requests_mv_integrations import TuneRequest
 from requests.models import Response
 from requests.exceptions import ReadTimeout
 
-from pyhttpstatus_utils import status_dicts, http_status_code_to_type
+from pyhttpstatus_utils import HTTP_STATUS_PHRASE_DICT, get_http_status_type
 
 from .resources.mockserver import run_server
 
@@ -301,14 +301,14 @@ def exceptions():
 
 
 def get_http_responses_4xx_5xx():
-    client_error_type = status_dicts.type[400]
-    server_error_type = status_dicts.type[500]
+    client_error_type = get_http_status_type(400)
+    server_error_type = get_http_status_type(500)
 
     ignore_list = [419, 425, 509]  # Uncommon http responses excluded from the test
 
     # Collect all possible 4xx and 5xx http responses
     http_responses = [
-        code for code in status_dicts.name if http_status_code_to_type(code) in [client_error_type, server_error_type]
+        code for code in HTTP_STATUS_PHRASE_DICT if get_http_status_type(code) in [client_error_type, server_error_type]
     ]
     http_responses = [code for code in http_responses if code not in ignore_list]
     return http_responses

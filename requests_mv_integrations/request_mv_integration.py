@@ -21,12 +21,12 @@ from logging_mv_integrations import (
 )
 from pyhttpstatus_utils import (
     HttpStatusType,
-    http_status_code_to_desc,
-    http_status_code_to_type,
+    get_http_status_desc,
+    get_http_status_type,
     is_http_status_type,
 )
-from pyhttpstatus_utils.status_code import HttpStatusCode
-from requests.packages.urllib3.exceptions import (
+from pyhttpstatus_utils import HttpStatusCode
+from urllib3.exceptions import (
     InsecureRequestWarning,
 )
 
@@ -477,7 +477,7 @@ class RequestMvIntegration(object):
                 status_codes = [int(s) for s in response_err.args[0].split() if s.isdigit()]
                 if len(status_codes) == 1:
                     http_status_code = status_codes[0]
-                    http_status_type = http_status_code_to_type(http_status_code)
+                    http_status_type = get_http_status_type(http_status_code)
                     error_kwargs = {
                         'errors': ex_req_adapter_retry,
                         'error_code': http_status_code,
@@ -1122,9 +1122,9 @@ class RequestMvIntegration(object):
         response_headers = json.loads(json.dumps(dict(response.headers)))
 
         http_status_type = \
-            http_status_code_to_type(http_status_code)
+            get_http_status_type(http_status_code)
         http_status_desc = \
-            http_status_code_to_desc(http_status_code)
+            get_http_status_desc(http_status_code)
 
         response_extra = {
             'http_status_code': http_status_code,

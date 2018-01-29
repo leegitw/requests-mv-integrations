@@ -39,19 +39,6 @@ version:
 	@echo "======================================================"
 	@echo $(REQUESTS_MV_INTGS_PKG) $(VERSION)
 
-# Install Python 3 via Homebrew.
-brew-python:
-	@echo "======================================================"
-	@echo brew-python
-	@echo "======================================================"
-	@echo $(shell which python3)
-	brew uninstall -f python3
-	@echo $(shell which python3)
-	brew update
-	brew install python3
-	@echo $(shell which python3)
-	$(PIP3) install --upgrade $(PY_MODULES)
-
 clean:
 	@echo "======================================================"
 	@echo clean $(PACKAGE)
@@ -104,6 +91,13 @@ install: remove-package
 	$(PIP3) install --upgrade $(WHEEL_ARCHIVE)
 	$(PIP3) freeze | grep $(PACKAGE)
 
+install-dist:
+	@echo "======================================================"
+	@echo install-dist $(PACKAGE)
+	@echo "======================================================"
+	$(PIP3) install --upgrade $(WHEEL_ARCHIVE)
+	$(PIP3) freeze | grep $(PACKAGE)
+
 freeze:
 	@echo "======================================================"
 	@echo freeze $(PACKAGE)
@@ -146,9 +140,7 @@ dist: clean
 	@echo "======================================================"
 	$(PIP3) install --upgrade -r requirements.txt
 	hub release create -m "$(PACKAGE_PREFIX)-$(VERSION)-$(PACKAGE_SUFFIX)" v$(VERSION)
-	$(PYTHON3) $(SETUP_FILE) bdist_wheel upload
-	$(PYTHON3) $(SETUP_FILE) bdist_egg upload
-	$(PYTHON3) $(SETUP_FILE) sdist --format=gztar upload
+	$(PYTHON3) $(SETUP_FILE) sdist bdist_wheel install upload
 	@echo "======================================================"
 	ls -al ./dist/$(PACKAGE_PREFIX_WILDCARD)
 	@echo "======================================================"
@@ -166,8 +158,7 @@ build: clean
 	$(PIP3) install --upgrade -r requirements.txt
 	$(PYTHON3) $(SETUP_FILE) clean
 	$(PYTHON3) $(SETUP_FILE) bdist_wheel
-	$(PYTHON3) $(SETUP_FILE) bdist_egg
-	$(PYTHON3) $(SETUP_FILE) sdist --format=zip,gztar
+	$(PYTHON3) $(SETUP_FILE) sdist
 	$(PYTHON3) $(SETUP_FILE) build
 	$(PYTHON3) $(SETUP_FILE) install
 	@echo "======================================================"

@@ -3,6 +3,10 @@
 Release History
 ===============
 
+0.7.5 (2018-01-28)
+------------------
+- Upgraded to use pyhttpstatus-utils 0.2.2.
+
 0.7.4 (2018-01-25)
 ------------------
 - migrate to github/tuneinc.

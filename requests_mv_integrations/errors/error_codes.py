@@ -3,7 +3,7 @@
 #  @copyright 2018 TUNE, Inc. (http://www.tune.com)
 #  @namespace requests_mv_integrations
 
-from pyhttpstatus_utils.status_code import HttpStatusCode
+from pyhttpstatus_utils import HttpStatusCode
 
 
 class TuneRequestErrorCodes(HttpStatusCode):

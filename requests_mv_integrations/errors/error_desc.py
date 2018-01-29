@@ -3,8 +3,8 @@
 #  @copyright 2018 TUNE, Inc. (http://www.tune.com)
 #  @namespace requests_mv_integrations
 
-from pyhttpstatus_utils.status_dicts import description as http_status_desc
-from pyhttpstatus_utils.status_dicts import name as http_status_codes
+from pyhttpstatus_utils import HTTP_STATUS_DESC_DICT
+from pyhttpstatus_utils import HTTP_STATUS_PHRASE_DICT
 
 tune_reporting_error_names = {
     -1: 'Unassigned',
@@ -61,7 +61,7 @@ def error_name(error_code, return_bool=False):
     if error_code is None or not isinstance(error_code, int):
         return f"Error Code: Invalid Type: {error_code}"
 
-    exit_code_name_ = http_status_codes.get(error_code, None)
+    exit_code_name_ = HTTP_STATUS_PHRASE_DICT.get(error_code, None)
     if exit_code_name_ is not None:
         return exit_code_name_
 
@@ -84,7 +84,7 @@ def error_desc(error_code, return_bool=False):
     if error_code is None or not isinstance(error_code, int):
         return f"Error Code: Invalid Type: {error_code}"
 
-    exit_code_description_ = http_status_desc.get(error_code, None)
+    exit_code_description_ = HTTP_STATUS_DESC_DICT.get(error_code, None)
     if exit_code_description_ is not None:
         return exit_code_description_
 

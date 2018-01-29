@@ -11,8 +11,8 @@ from requests_toolbelt.utils import dump
 import xmltodict
 from pprintpp import pprint
 from pyhttpstatus_utils import (
-    http_status_code_to_desc,
-    http_status_code_to_type,
+    get_http_status_desc,
+    get_http_status_type,
     is_http_status_successful,
 )
 
@@ -298,9 +298,9 @@ def build_response_error_details(request_label, request_url, response):
     http_status_code = \
         response.status_code
     http_status_type = \
-        http_status_code_to_type(http_status_code)
+        get_http_status_type(http_status_code)
     http_status_desc = \
-        http_status_code_to_desc(http_status_code)
+        get_http_status_desc(http_status_code)
 
     response_status = f"{http_status_code}: {http_status_type}: {http_status_desc}"
 

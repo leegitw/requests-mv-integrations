@@ -8,7 +8,7 @@ import os
 from os import sep
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from pyhttpstatus_utils.status_code import HttpStatusCode
+from pyhttpstatus_utils import HttpStatusCode
 import errno
 
 HTTP_SERVER_PORT = 8998

@@ -6,7 +6,7 @@
 import logging
 import requests
 from requests.adapters import (HTTPAdapter, DEFAULT_POOLSIZE)
-from requests.packages.urllib3.util.retry import Retry
+from urllib3.util.retry import Retry
 from requests_mv_integrations.support import (REQUEST_RETRY_HTTP_STATUS_CODES)
 from requests_mv_integrations.errors import (get_exception_message)
 

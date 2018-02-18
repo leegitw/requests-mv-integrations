@@ -3,6 +3,10 @@
 Release History
 ===============
 
+0.7.7 (2018-02-16)
+------------------
+- migrate to github/TuneLab
+
 0.7.6 (2018-02-07)
 --------------------
 - Updated requirements.txt
@@ -13,7 +17,7 @@ Release History
 
 0.7.4 (2018-01-25)
 ------------------
-- migrate to github/tuneinc.
+- migrate to github/tuneinc
 
 0.7.2 (2017-12-10)
 ---------------------

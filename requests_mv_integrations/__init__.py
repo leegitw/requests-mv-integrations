@@ -4,7 +4,7 @@
 #  @namespace requests_mv_integrations
 
 __title__ = 'requests-mv-integrations'
-__version__ = '0.7.8'
+__version__ = '0.7.9'
 __version_info__ = tuple(__version__.split('.'))
 
 __author__ = 'jefft@tune.com'

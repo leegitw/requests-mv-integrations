@@ -114,19 +114,19 @@ fresh: dist dist-update install
 register:
 	$(PYTHON3) $(SETUP_FILE) register
 
-local-dev-editable: remove-package
+local-dev: requirements remove-package
 	@echo "======================================================"
-	@echo local-dev-editable $(PACKAGE)
+	@echo local-dev $(PACKAGE)
 	@echo "======================================================"
 	$(PIP3) install --upgrade freeze
-	$(PIP3) install --upgrade --editable .
+	$(PIP3) install --upgrade .
 	@echo "======================================================"
 	$(PIP3) freeze | grep $(PACKAGE)
 	@echo "======================================================"
 
-local-dev: requirements remove-package
+local-dev-no-install:
 	@echo "======================================================"
-	@echo local-dev $(PACKAGE)
+	@echo local-dev-no-install $(PACKAGE)
 	@echo "======================================================"
 	$(PIP3) install --upgrade freeze
 	$(PIP3) install --upgrade .
